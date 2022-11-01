@@ -9,7 +9,7 @@ const generateQrcodeImage = (data) => {
         const __dirname = dirname(__filename);
         const imagesDirecory = path.join(__dirname, "../data/images/");
 
-        QRCode.toFile(imagesDirecory + new Date().toISOString() + '.png',
+        QRCode.toFile(imagesDirecory + data.id  + '.png',
             `${data.text}`,
             {
                 width: "1000",

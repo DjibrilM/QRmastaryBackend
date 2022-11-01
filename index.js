@@ -2,6 +2,7 @@ import express from "express";
 const app = express();
 import MainRouter from "./src/routes/index.js"
 import bodyParser from "body-parser";
+import database from "./src/database/index.js"
 
 
 //integrating bodyparser!
@@ -31,6 +32,8 @@ app.use('/qrmastaryV1', MainRouter)
 app.use('*', (req, res, next) => {
     return res.status(404).json({ message: "Bad request" })
 })
+
+database.connect()
 
 app.listen(8080, (succ, fail) => {
     if (fail) console.log('fails to start the server')
