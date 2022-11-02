@@ -4,6 +4,7 @@ import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import QRschema from "../database/schemas/QRschema.js";
+import { deleteQRimage } from "../helpers/schedule.js"
 
 export const createQrImage = async (req, res, next) => {
     const { text, color, background } = req.body;
@@ -15,17 +16,19 @@ export const createQrImage = async (req, res, next) => {
             color: color
         })
 
-    
         const generateImage = await generateQrcodeImage({
             color: color,
             background: background,
             text: text,
             id: createImage.id
         })
+
+        deleteQRimage(createImage.id)
+
         return res.status(202).json({
             message: "image created",
             id: createImage.id,
-            data: createImage
+            data: { ...createImage }
         })
     } catch (error) {
         return res.status(501).json({ message: "server err" })
