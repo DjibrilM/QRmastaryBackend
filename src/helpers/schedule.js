@@ -5,7 +5,6 @@ import { fileURLToPath } from "url";
 import path from "path";
 import { dirname } from 'path';
 
-
 export const deleteQRimage = (id) => {
     const DataRef = new Date();
     const initialMinute = DataRef.getMinutes();
