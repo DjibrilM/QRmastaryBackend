@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 import database from "./src/database/index.js"
 
 
+
 //integrating bodyparser!
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
