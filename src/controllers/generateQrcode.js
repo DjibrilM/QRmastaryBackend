@@ -36,6 +36,7 @@ export const createQrImage = async (req, res, next) => {
     }
 }
 
+
 export const getImageBystream = async (req, res, next) => {
     const id = req.params.id;
     const createImage = QRschema.findById(id)
