@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 import QRschema from "../database/schemas/QRschema.js";
 import { deleteQRimage } from "../helpers/schedule.js"
 
+
 export const createQrImage = async (req, res, next) => {
     const { text, color, background } = req.body;
 
